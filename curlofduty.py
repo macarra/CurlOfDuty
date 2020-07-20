@@ -1,27 +1,16 @@
+#!/bin/env python3
 
-# coding: utf-8
-
-# In[1]:
-
-
-## From Whiteboard page
 #from codecs import encode
 #cluetext = 'znxr n yvfg bs cevzrf naq fhz gur barf gung ner ng cevzr vaqrkrf'
 #encode(cluetext,'rot13')
 #Note: In rot13, decode and encode are the same, hence it's popularity~
 #Session ID: f73709aed14f45058a7b7e75d46a88c7
 
-Result of decode: make a list of primes and sum the ones that are at prime indexes
-# In[2]:
-
 
 import matplotlib.pyplot as P
 import time
 from IPython.display import clear_output
-
-
-# In[3]:
-
+import sys
 
 def count_primes(num):
     primes = [2]
@@ -38,9 +27,6 @@ def count_primes(num):
             x += 2
     #print(primes)
     return len(primes)
-
-
-# In[4]:
 
 
 def is_prime(num):
@@ -61,11 +47,6 @@ def is_prime(num):
     #print(primes)
     return False
     
-
-
-# In[5]:
-
-
 from numba import jit
 @jit
 def sum_prime_primes(num):
@@ -94,28 +75,22 @@ def sum_prime_primes(num):
             x+=2
 
     return primesum
-#sum_prime_primes(1034382)
+ 
+
+if __name__ == '__main__':
+
+    limit = 10000
+    if len(sys.argv) > 1:
+        limit = int(sys.argv[1])
+
+    start = time.time()
+    result = sum_prime_primes(limit)
+    print("Limit:",limit,"Result:",result)
+    end = time.time()
+    print(end - start)
 
 
-# In[6]:
-
-
-sum_prime_primes(100)
-
-
-# ### Result 1
-# #sum_prime_primes(50000000)
-# 
+# First result
 # 5036061511056
 
-# In[7]:
-
-
-#elapsed=[]
-#for x in range(1000,100000,1000):
-#    start = time.time()
-#    sum_prime_primes(x)
-#    end = time.time()
-#    elapsed.append(end-start)
-#print(elapsed)
 

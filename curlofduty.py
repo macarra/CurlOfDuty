@@ -6,8 +6,6 @@
 #Note: In rot13, decode and encode are the same, hence it's popularity~
 #Session ID: f73709aed14f45058a7b7e75d46a88c7
 
-
-import matplotlib.pyplot as P
 import time
 from IPython.display import clear_output
 import sys
